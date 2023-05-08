@@ -68,7 +68,8 @@ void exposeSignalBase(const char* name) {
            bp::return_value_policy<bp::reference_existing_object>(),
            "To which signal the signal is plugged")
 
-      .def("recompute", &S_t::recompute, "Recompute the signal at given time")
+      .def("recompute", &S_t::recomputeFromPy, "Recompute the signal at given time - Call to interface made from python")
+      .def("setRecomputeFromPy", &S_t::setRecomputeFromPy, "Set the boolean flag which controls whether a signal should be recomputed from python or not")
 
       .def(
           "__str__",
